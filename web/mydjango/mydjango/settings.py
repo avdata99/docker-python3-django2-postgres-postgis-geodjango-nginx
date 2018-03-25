@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django.contrib.gis',
+    
+    'geoapp',
+    
 ]
 
 MIDDLEWARE = [
@@ -75,7 +78,7 @@ if 'DB_NAME' in os.environ:
     # Running the Docker image
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
             'NAME': os.environ['DB_NAME'],
             'USER': os.environ['DB_USER'],
             'PASSWORD': os.environ['DB_PASS'],
@@ -143,3 +146,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
+
+STATIC_URL = '/media/'
+STATIC_ROOT = 'media/'

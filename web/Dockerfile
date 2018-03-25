@@ -1,4 +1,4 @@
-FROM alpine
+FROM python:3.5
 
 # Initialize
 RUN mkdir -p /data/web
@@ -6,18 +6,18 @@ WORKDIR /data/web
 COPY requirements.txt /data/web/
 
 # Setup
-RUN apk update
-RUN apk upgrade
-RUN apk add --update python3 python3-dev postgresql-client postgresql-dev build-base gettext
+
+RUN apt-get update -y
+# RUN apt-get upgrade -y
+# RUN apt-get install -y python3 python3-dev postgresql-client postgresql-dev build-base gettext
+RUN apt-get install -y python3 python3-setuptools postgresql gettext gunicorn
+
 # geolibs para geodjango
-RUN apk add --update binutils libproj-dev gdal-bin
+RUN apt-get install -y binutils libproj-dev gdal-bin
 
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
-
-# Clean
-RUN apk del -r python3-dev postgresql
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 # Prepare
 COPY . /data/web/
-RUN mkdir -p mydjango/static/admin
+WORKDIR /data/web/mydjango

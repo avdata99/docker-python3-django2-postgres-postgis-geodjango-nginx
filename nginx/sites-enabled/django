@@ -7,6 +7,10 @@ server {
     location /static {
         alias /data/web/mydjango/static;
     }
+    
+    location /media {
+        alias /data/web/mydjango/media;
+    }
 
     location / {
         proxy_pass http://web:8000;

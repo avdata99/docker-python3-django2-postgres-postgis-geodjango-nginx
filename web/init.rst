@@ -8,7 +8,29 @@ Crear el proyecto Django:
 
   django-admin startproject mydjango
 
+Agregar directorios para *media* y *static*.
+
+.. code:: bash 
+
+  mkdir mydjango/static 
+  mkdir mydjango/media
+
+ 
+Además agregar *django.contrib.gis* a **INSTALLED_APPS**.
+
+Migrar, estáticos y superuser
+
+.. code:: bash
+
+  python manage.py migrate
+  python manage.py collectstatic
+  python manage.py createsuperuser
 
 
-Agregar *django.contrib.gis* a **INSTALLED_APPS**.
+Crear una app de prueba
+
+.. code:: bash
+
+  python manage.py startapp geoapp
+
 
