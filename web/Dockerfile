@@ -9,6 +9,9 @@ COPY requirements.txt /data/web/
 RUN apk update
 RUN apk upgrade
 RUN apk add --update python3 python3-dev postgresql-client postgresql-dev build-base gettext
+# geolibs para geodjango
+RUN apk add --update binutils libproj-dev gdal-bin
+
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 

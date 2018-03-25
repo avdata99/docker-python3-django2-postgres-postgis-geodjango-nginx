@@ -8,3 +8,5 @@ Proyecto base con:
  - Postgres / Postgis
  - Nginx
  - Storage para db y backups
+ 
+Se uso como referencia `este <https://www.capside.com/es/labs/deploying-full-django-stack-with-docker-compose/>` post.
