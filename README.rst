@@ -2,11 +2,12 @@ Dockerizando GeoDjango
 ======================
 
 Proyecto base con:
- - Django 2
  - Python 3
+ - Django 2
  - GeoDjango
- - Postgres / Postgis
+ - Postgres 10 / Postgis
  - Nginx
- - Storage para db y backups
+ - Redis
+ - Storage para persistir db
  
 Se uso como referencia `este <https://www.capside.com/es/labs/deploying-full-django-stack-with-docker-compose/>`_ post.
